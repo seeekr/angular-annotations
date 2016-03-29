@@ -10,6 +10,7 @@ import {getInjectableClass} from '../util/helpers';
 function Factory(name) {
     if (typeof name !== 'string') {
         annotate(name);
+        return arguments[0];
     }
 
     return target => {

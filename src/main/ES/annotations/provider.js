@@ -9,6 +9,7 @@ import angular from 'angular';
 function Provider(name) {
     if (typeof name !== 'string') {
         annotate(name);
+        return arguments[0];
     }
 
     return target => {
@@ -17,8 +18,9 @@ function Provider(name) {
     };
 
     function annotate(target, name) {
+        name = (name || target.name).replace(/Provider$/, '')
         angular.module(target.moduleName)
-            .provider(name || target.name, target);
+            .provider(name, target);
     }
 }
 

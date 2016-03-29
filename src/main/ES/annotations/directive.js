@@ -10,6 +10,7 @@ import {getInjectableClass, pascalCaseToCamelCase} from '../util/helpers';
 function Directive(selector) {
     if (typeof selector !== 'string') {
         annotate(selector);
+        return arguments[0];
     }
 
     return target => {

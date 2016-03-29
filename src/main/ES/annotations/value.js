@@ -9,6 +9,7 @@ import angular from 'angular';
 function Value(name) {
     if (typeof name !== 'string') {
         annotate(name);
+        return arguments[0];
     }
 
     return target => {
